@@ -28,7 +28,7 @@ zap:
 redis:
   db: 0
   master: 'sentinel-10.16.9.13-6410'
-  sentinel: '10.16.9.53:6396,10.16.9.13:6414,10.16.9.14:6410'
+  sentinel: ''
   PoolSize: 2
 
 
@@ -43,7 +43,7 @@ system:
 
 # mysql connect configuration
 mysql:
-  path: '10.30.7.101:3306'
+  path: ''
   config: 'charset=utf8mb4&parseTime=True&loc=Local'
   db-name: 'meteor'
   username: 'dev_crm'
@@ -59,7 +59,7 @@ eunomia:
   access_token: '8a90b7a4743506b80175d0060d8455f9#8a90b7a4743506b80175d01da00556f2'
   # 测试
   #  access_token: '8a76951575d51f200175d51f20490001#8a76951575d51f200175d5209d720003'
-  domain: 'http://eunomia.ziroom.com'
+  domain: ''
   sensitive: '/api/sensitive'
   oauth: '/api/oauth2/token'
 
