@@ -1,0 +1,90 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample Server pets",
+        "title": "短链API文档",
+        "contact": {},
+        "license": {
+            "name": "meteor"
+        },
+        "version": "0.0.1"
+    },
+    "basePath": "/",
+    "paths": {
+        "/api/short_url/create": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Demo"
+                ],
+                "summary": "长url转短url",
+                "parameters": [
+                    {
+                        "description": "生成短链",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/url.CreateShortUrlReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/url/:url": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Demo"
+                ],
+                "summary": "短链跳转",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "test",
+                        "name": "url",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "返回结果",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "url.CreateShortUrlReq": {
+            "type": "object",
+            "properties": {
+                "sourceUrl": {
+                    "description": "request.AuthInfo",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

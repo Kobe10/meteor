@@ -1,0 +1,66 @@
+# Gin-Vue-Admin Global Configuration
+# common 配置
+appId: meteor
+#运行模式环境配置 重要 ，包含 dev：开发 、feature：测试、 preprod：准生产、 prod：生产
+run_mode: feature
+
+
+common:
+  log_path: /app/logs
+  log_file: app
+
+short_url:
+  domain: localhost
+
+# zap logger configuration
+zap:
+  level: 'info'
+  format: 'console'
+  prefix: '[METEOR]'
+  director: 'logs'
+  link-name: 'latest_log'
+  show-line: true
+  encode-level: 'LowercaseColorLevelEncoder'
+  stacktrace-key: 'stacktrace'
+  log-in-console: true
+
+# redis configuration
+redis:
+  db: 0
+  master: 'master0'
+  sentinel: '10.16.16.106:6396,10.16.16.108:6389,10.16.9.53:6428'
+  PoolSize: 2
+
+
+# system configuration
+system:
+  env: 'public'  # Change to "develop" to skip authentication for development mode
+  addr: 8081
+  db-type: 'mysql'
+  oss-type: 'local'
+  use-multipoint: false
+
+
+# mysql connect configuration
+mysql:
+  path: '10.30.7.101:3306'
+  config: 'charset=utf8mb4&parseTime=True&loc=Local'
+  db-name: 'meteor'
+  username: 'dev_crm'
+  password: 'ziroomdb'
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: false
+
+eunomia:
+  username: 'meteor'
+  password: '8a76951575d51f200175d51f203f0000'
+  # 生产
+  access_token: '8a90b7a4743506b80175d0060d8455f9#8a90b7a4743506b80175d01da00556f2'
+  # 测试
+  #  access_token: '8a76951575d51f200175d51f20490001#8a76951575d51f200175d5209d720003'
+  domain: 'http://eunomia.ziroom.com'
+  sensitive: '/api/sensitive'
+  oauth: '/api/oauth2/token'
+
+

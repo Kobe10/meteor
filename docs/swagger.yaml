@@ -1,0 +1,58 @@
+basePath: /
+definitions:
+  url.CreateShortUrlReq:
+    properties:
+      sourceUrl:
+        description: request.AuthInfo
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a sample Server pets
+  license:
+    name: meteor
+  title: 短链API文档
+  version: 0.0.1
+paths:
+  /api/short_url/create:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 生成短链
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/url.CreateShortUrlReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      summary: 长url转短url
+      tags:
+      - Demo
+  /url/:url:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: test
+        in: path
+        name: url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "302":
+          description: 返回结果
+          schema:
+            type: json
+      summary: 短链跳转
+      tags:
+      - Demo
+swagger: "2.0"

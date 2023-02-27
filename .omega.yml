@@ -1,0 +1,17 @@
+name: meteor
+
+
+compile:
+  preset: compile/GOLANG
+  variables:
+    GOLANG: 1.13
+
+assembly:
+  preset: assembly/GOLANG
+  variables:
+
+
+docker:
+  preset: docker/GOLANG
+  variables:
+    BASE_IMAGE: "{{.BASE_IMAGE}}"
